@@ -9,6 +9,9 @@ $turma = substr($_POST['Lista'],1,1);
 $titulo = $ano.'º Ano '.$turma;
 if($ano=='L') {
 $sql = "select * from tb_aluno where situacaoMatricula = 'M' order by ano, turma, nome asc";
+}
+if($ano=='A') {
+	$sql = "select * from tb_aluno where situacaoMatricula = 'M' and dificuldade = 'S' order by ano, turma, nome asc";
 }else{
 	$sql = "select * from tb_aluno where ano = '$ano' and turma = '$turma' and situacaoMatricula = 'M' order by nome asc";
 }
@@ -32,7 +35,6 @@ $result = mysqli_query($connection, $sql);
 			<td>'.$nome.'</td>
 			<td align="center"><a href="editarDireto.php?cgm='.$cgm.'">Editar</a></td>
 			<td align="center"><a href="info.php?cgm='.$cgm.'">Informações</a></td>
-			<td align="center"><a href="Direto.php?id='.$cgm.'" target="_blank" rel="noopener noreferrer">Imprimir</a></td>
 		</tr>
 		';
 		$_SESSION["alunos"] = $lista;
@@ -46,7 +48,10 @@ $result = mysqli_query($connection, $sql);
 		<body>	
 			<form method="POST" action="?id=Lista" onchange="form.submit()">
 			<div id="editar">
-				<div align="center"><h2>Editar Alunos'.$mostraCaixaSuspensa.'</h2>'.$turmaQTDE.'<hr width="50%"><hr width="70%"></div>
+				<div align="center">
+				<h2>Editar Alunos'.$mostraCaixaSuspensa.'</h2>
+				'.$turmaQTDE.'
+				<hr width="50%"><hr width="70%"></div>
 				<div align="center">
 				<table border="1">
 				<tr>
@@ -56,7 +61,6 @@ $result = mysqli_query($connection, $sql);
 					<td align="center">Nome</td>
 					<td align="center">Editar</td>
 					<td align="center">Observação</td>
-					<td align="center">Imprimir</td>
 				</tr>
 				'.$_SESSION["alunos"].'
 				</table>

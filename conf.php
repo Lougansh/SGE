@@ -98,6 +98,7 @@ $mostraCaixaSuspensa = '
 		<option>5E</option>
 		<option>5F</option>
 		<option>LG</option>
+		<option>AD</option>
 	</select>
 ';
 ?>

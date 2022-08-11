@@ -19,7 +19,6 @@ $result = mysqli_query($connection, $sql);
 			<td align="center">'.$turma.'</td>
 			<td align="center">'.$status.'</td>
             <td align="center"><a href="editarTurma.php?ID='.$id.'">Editar</a></td>
-			<td align="center"><a href="editarPlanejamento.php?ano='.$ano.'">Editar</a></td>
 		</tr>
 		';
 		$_SESSION["turma"] = $lista;
