@@ -2,11 +2,14 @@
 	session_start();
 	include './conexao.php';
 	include './conf.php';
+	//-----------------------------------------
 	menu();
 	if (isset($_POST['Lista']) && $_POST['Lista'] != ''){
-		$ano = substr($_POST['Lista'],0,1);		$turma = substr($_POST['Lista'],1,1);
+		$ano = substr($_POST['Lista'],0,1);
+		$turma = substr($_POST['Lista'],1,1);
 		$sql = "select * from tb_aluno where ano = '$ano' and turma = '$turma' and situacaoMatricula = 'M' order by nome asc";		
-		$result = mysqli_query($connection, $sql);    	while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+		$result = mysqli_query($connection, $sql);
+    	while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
 			$foto_aluno = './img/aluno/'.$row['cgm'].'.JPG';
 			$montaDropCodigo = $montaDropCodigo.'<option value="'.$row['cgm'].'">'.$row['nome'].'</option>';
 		}

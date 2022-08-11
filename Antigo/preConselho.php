@@ -37,7 +37,7 @@ while($rowTurma = mysqli_fetch_array($resultTurma,MYSQLI_ASSOC)) {
     $status = $rowTurma['status'];
     $obs = '<font color="red">'.$rowTurma['obs'].' </font>';
     $texto = $texto.$obs;
-    $sqlAluno = "select * from tb_aluno where ano = $ano and turma = '$turma' and situacaoMatricula = 'M' and observacao <> '' and dificuldade = 'S' order by nome";		
+    $sqlAluno = "select * from tb_aluno where ano = $ano and turma = '$turma' and situacaoMatricula = 'M' and observacao <> '' order by nome";		
     $resultAluno = mysqli_query($connection, $sqlAluno);
         while($rowAluno = mysqli_fetch_array($resultAluno,MYSQLI_ASSOC)) {
         $cgm = $rowAluno['cgm'];
