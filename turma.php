@@ -17,7 +17,6 @@ $result = mysqli_query($connection, $sql);
 			<td align="center">'.$i.'</td>
 			<td align="center">'.$ano.'</td>
 			<td align="center">'.$turma.'</td>
-			<td align="center">'.$status.'</td>
             <td align="center"><a href="editarTurma.php?ID='.$id.'">Editar</a></td>
 		</tr>
 		';
@@ -45,7 +44,6 @@ $result = mysqli_query($connection, $sql);
 					<td align="center">ID</td>
 					<td align="center">Ano</td>
 					<td align="center">Turma</td>
-					<td align="center">Status</td>
                     <td align="center">Editar</td>
 				</tr>
 				'.$_SESSION["turma"].'
