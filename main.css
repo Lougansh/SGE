@@ -13,9 +13,7 @@ body {
 
 a:link {
 	text-decoration: none;
-	border-bottom:3px solid #EDEDED;
 	padding: 0px 10px;
-	float:center;
 }
 a:visited {
 	color: gray; text-decoration: none;
@@ -24,7 +22,6 @@ a:active {
 	color: yellow; text-decoration: none;
 }
 a:hover {
-	background-color:#D6D6D6;
 	color: #6D6D6D;
 	border-bottom:3px solid #EA0000;
 	text-decoration: none;
@@ -46,7 +43,7 @@ table.turma {
 	font-size: 12px;
 	overflow: hidden;
 }
-tr:hover{
+#editar tr:hover{
 	background-color:yellow
 }
 p {
