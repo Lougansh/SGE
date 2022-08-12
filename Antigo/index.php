@@ -1,1 +1,0 @@
-<?phpinclude("conexao.php");include("conf.php");menu();?><div align="center"><img class="master" align="center" border="0" src="./uploads/robo.png" height="640"></div><fieldset align="center" style="padding: 2"><legend>Sistema Gerenciador Escolar</legend><center>Desenvolvedor Everaldo José de Souza</center></fieldset>

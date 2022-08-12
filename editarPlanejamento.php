@@ -16,7 +16,18 @@ if (isset($_POST['atualizar'])){
     if($result){echo'
 		<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
 			alert ("Atualizado com sucesso!!!")
-			window.location="turma.php"	
+			window.location="editarPlanejamento.php"	
+		</SCRIPT>
+	';}
+}
+if (isset($_POST['excluir'])){
+    $ID = $_SESSION['ID'];
+        $sql = "delete from tb_planejamento where ID = $ID";
+    $result = mysqli_query($connection, $sql);
+    if($result){echo'
+		<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+			alert ("Exluido com sucesso!!!")
+			window.location="editarPlanejamento.php"	
 		</SCRIPT>
 	';}
 }
@@ -77,7 +88,8 @@ echo
 				<a href="editarPlanejamento.php?ano=5">5º Ano</a>
         <h2>'.$_SESSION['titulo'].'</h2><hr width="70%">
 			<form method="POST" action="?ano='.$ano.'" onchange="form.submit()">
-			<select style="width:800px;" size="1" name="conteudo" onchange="form.submit()">
+            <input type="submit" value="Excluir" name="excluir">
+            <select style="width:800px;" size="1" name="conteudo" onchange="form.submit()">
             <option></option><option value="'.$row['ID'].'">'.$row['ID'].' - '.$row['conteudo'].'</option>'.$_SESSION['conteudo'].'</select>
             <input type="submit" value="Atualizar" name="atualizar"><hr width="70%">
             <br><h1>'.$tituloConteudo.'</h1><br>Objetivos:<br>

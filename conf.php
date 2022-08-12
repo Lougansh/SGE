@@ -7,11 +7,12 @@ function menu(){
 						<li><a href="./cadastrar.php" title=" Cadastrar alunos">Cadastrar</a></li>
 						<li><a href="./listar.php" title=" Listar alunos">Listar</a></li>
 						<li><a href="./preConselho.php" title=" Pré Conselho">Pré Conselho</a></li>
-                  <li><a href="./enviarFotos.php" title="Enviar Fotos">Enviar Fotos</a></li>
-                  <li><a href="./verFotos.php" title="Ver Fotos">Ver Fotos</a></li>
-				  <li><a href="./turma.php" title="Turmas">Turmas</a></li>
-				  <li><a href="./aproveitamento.php" title="Turmas">Aproveitamento</a></li>
-                  <li><a href="./modJogos.php" title="Jogos Flash">Jogos</a></li>
+                  		<li><a href="./enviarFotos.php" title="Enviar Fotos">Enviar Fotos</a></li>
+                  		<li><a href="./verFotos.php" title="Ver Fotos">Ver Fotos</a></li>
+				  		<li><a href="./turma.php" title="Turmas">Turmas</a></li>
+						  <li><a href="./editarPlanejamento.php" title="Planejamento">Planejamento</a></li>
+				  		<li><a href="./aproveitamento.php" title="Turmas">Aproveitamento</a></li>
+                  		<li><a href="./modJogos.php" title="Jogos Flash">Jogos</a></li>
 					</ul>
 				</div>
 			</div>
