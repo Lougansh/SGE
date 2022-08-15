@@ -7,10 +7,10 @@ if (isset($_POST['Lista']) && $_POST['Lista'] != ''){
 $ano = substr($_POST['Lista'],0,1);
 $turma = substr($_POST['Lista'],1,1);
 $titulo = $ano.'º Ano '.$turma;
-if($ano=='L') {
-$sql = "select * from tb_aluno where situacaoMatricula = 'M' order by ano, turma, nome asc";
+if($ano=='L' && $turma =='G') {
+	$sql = "select * from tb_aluno where situacaoMatricula = 'M' order by ano, turma, nome";
 }
-if($ano=='A') {
+elseif($ano=='A' && $turma =='D') {
 	$sql = "select * from tb_aluno where situacaoMatricula = 'M' and dificuldade = 'S' order by ano, turma, nome asc";
 }else{
 	$sql = "select * from tb_aluno where ano = '$ano' and turma = '$turma' and situacaoMatricula = 'M' order by nome asc";
