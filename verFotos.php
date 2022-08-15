@@ -7,14 +7,17 @@
 	$rd = rand($min, $max);
 	menu();
 	if (isset($_POST['Lista']) && $_POST['Lista'] != ''){
-		$ano = substr($_POST['Lista'],0,1);		$turma = substr($_POST['Lista'],1,1);
+		$ano = substr($_POST['Lista'],0,1);
+		$turma = substr($_POST['Lista'],1,1);
 		$sql = "select * from tb_aluno where ano = '$ano' and turma = '$turma' and situacaoMatricula = 'M' order by nome asc";		
-		$result = mysqli_query($connection, $sql);    	while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+		$result = mysqli_query($connection, $sql);
+    	while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+			$cgm = $row['cgm'];
     		$explodeNome = explode(" ",$row['nome']);
 			$primeiroNome = current($explodeNome);
 			$foto_aluno = '../img/aluno/'.$row['cgm'].'.JPG';
 			$mostraFotos = '<table border="0" style="display:inline;"><tr><td>
-								 <img style="margin: 1px; padding: 1px; border: 1px solid gray" alt="'.$row['nome'].'" title="'.$row['nome'].'" src="../img/aluno/'.$row['cgm'].'.JPG?'.$rd.'"></td></tr><tr><td><p align="center">'.$primeiroNome.'</td></tr><tr><td><p align="center">'.$ano.$turma.'</td></tr></table>'.$mostraFotos;
+			<a href="editarDireto.php?cgm='.$cgm.'"><img style="margin: 1px; padding: 1px; border: 1px solid gray" alt="'.$row['nome'].'" title="'.$row['nome'].'" src="../img/aluno/'.$row['cgm'].'.JPG?'.$rd.'"></a></td></tr><tr><td align="center">'.$primeiroNome.'</td></tr><tr><td align="center">'.$ano.$turma.'</td></tr></table>'.$mostraFotos;
 		}
 		$_SESSION["montaDropCodigo"] = $montaDropCodigo;
 	}
@@ -41,8 +44,12 @@
 	}
 echo'
 	<html>
-		<head>			<link rel="stylesheet" href="./main.css">			<meta charset="utf-8">			<link rel="icon" href="img/favicon.ico">
-			<title> Fotos </title>		</head>
+		<head>
+			<link rel="stylesheet" href="./main.css">
+			<meta charset="utf-8">
+			<link rel="icon" href="img/favicon.ico">
+			<title> Fotos </title>
+		</head>
 		<body>
 			<div align="center">
 			<form method="post" action="?foto">
