@@ -12,11 +12,11 @@ $ano = $_POST['Lista'];
             $i++;
             $montaLista  = $montaLista.'
             <input type="checkbox" name= "ID[]" value="'.$row['ID'].'">
-            '. $row['conteudo'] .' '<br>';
+            '. $row['conteudo'] .'<br>';
         }
+        $formulario = $montaLista.'
         <input type="submit" value="Excluir" name="excluir" onchange="form.submit()">';
-    }
-    $_SESSION["formulario"] = $montaLista;
+    $_SESSION["formulario"] = $formulario;
 }	
 if (isset($_POST['enviar'])) {
     $ID = $_POST['ID'];
