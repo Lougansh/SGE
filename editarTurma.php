@@ -47,7 +47,7 @@ echo
 					<br><table border="0">
 						<tr>
 							<td rowspan="7" align="center" width="315"><hr width="10%"><hr width="30%"><hr width="50%">
-								<img src="../upload/logoMFT.jpg">
+							<img src="../uploads/logoNew.png" width="100">
 								<hr width="50%">
 								<hr width="30%">
 								<hr width="10%">
