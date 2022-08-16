@@ -3,7 +3,7 @@ session_start();
 include("conexao.php");
 include("conf.php");
 menu();
-//Sei la pqp kct
+//Sei la pqp kctxxx
 if (isset($_POST['Lista']) && $_POST['Lista'] != ''){
 $ano = $_POST['Lista'];
     $sql = "select * from tb_planejamento where turma = '$ano' order by ID";
