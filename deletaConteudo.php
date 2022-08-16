@@ -16,13 +16,12 @@ $ano = $_POST['Lista'];
         }
         $formulario = $montaLista.'
         <input type="submit" value="Excluir" name="excluir" onchange="form.submit()">';
-    $_SESSION["formulario"] = $formulario;
+    $_SESSION["formulario"] = $formulario
+    ;
 }	
-if (isset($_POST['enviar'])) {
-    $ID = $_POST['ID'];
-    
+if (isset($_POST['excluir'])) {
     foreach($_POST['ID'] AS $key => $value){
-    $sql = "delete * from tb_aluno where ID = $value";
+    $sql = "delete from tb_planejamento where ID = $value";
     $result = mysqli_query($connection, $sql);
     }
     echo'<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">alert ("Excluido comn sucesso")</SCRIPT>';
