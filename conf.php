@@ -11,9 +11,9 @@ function menu(){
                   		<li><a href="./enviarFotos.php" title="Enviar Fotos">Enviar Fotos</a></li>
                   		<li><a href="./verFotos.php" title="Ver Fotos">Ver Fotos</a></li>
 				  		<li><a href="./turma.php" title="Turmas">Turmas</a></li>
-						  <li><a href="./editarPlanejamento.php" title="Planejamento">Planejamento</a></li>
+						<li><a href="./editarPlanejamento.php" title="Planejamento">Planejamento</a></li>
 				  		<li><a href="./aproveitamento.php" title="Turmas">Aproveitamento</a></li>
-						  <li><a href="./relatorio.php" title=" Relatorio de  alunos">Relatório</a></li>
+						<li><a href="./relatorio.php" title=" Relatorio de  alunos">Relatório</a></li>
                   		<li><a href="./modJogos.php" title="Jogos Flash">Jogos</a></li>
 					</ul>
 				</div>
@@ -102,6 +102,7 @@ $mostraCaixaSuspensa = '
 		<option>5F</option>
 		<option>LG</option>
 		<option>AD</option>
+		<option>RE</option>
 	</select>
 ';
 ?>

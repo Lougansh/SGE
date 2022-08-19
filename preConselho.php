@@ -77,7 +77,7 @@ echo'
 A Informática Educacional atende na escola Adolival Pian '.$qtdeAlunos.', alunos sendo '.$qtdeAlunosEnsinoFundamental.' alunos, do Ensino 
 fundamental e '.$qtdeAlunosEducacaoInfantil.' alunos, da educação infantil. As aulas ocorrem uma vez por semana num periodo de 40 minutos. 
 Os conteúdos ministrados seguem o planejamento da Secretaria de Educação, conforme instruções recebidas.
-'.$texto.'; 
+'.$texto.'
 </p>
 </body>
 </html>

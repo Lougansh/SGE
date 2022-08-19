@@ -12,6 +12,9 @@ if($ano=='L' && $turma =='G') {
 }
 elseif($ano=='A' && $turma =='D') {
 	$sql = "select * from tb_aluno where situacaoMatricula = 'M' and dificuldade = 'S' order by ano, turma, nome asc";
+}
+elseif($ano=='R' && $turma =='E') {
+	$sql = "select * from tb_aluno where situacaoMatricula = 'M' and robotica = 'S' order by ano, turma, nome asc";
 }else{
 	$sql = "select * from tb_aluno where ano = '$ano' and turma = '$turma' and situacaoMatricula = 'M' order by nome asc";
 }
