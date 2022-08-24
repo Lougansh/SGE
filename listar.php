@@ -3,6 +3,11 @@ session_start();
 include("conexao.php");
 include("conf.php");
 menu();
+
+setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+date_default_timezone_set('America/Sao_Paulo');
+$hoje =  strftime('%A, %d de %B de %Y', strtotime('today'));
+
 if (isset($_POST['Lista']) && $_POST['Lista'] != ''){
 $ano = substr($_POST['Lista'],0,1);
 $turma = substr($_POST['Lista'],1,1);
@@ -21,9 +26,9 @@ elseif($ano=='R' && $turma =='E') {
 $result = mysqli_query($connection, $sql);
     while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
 		$i++;
-      $cgm = $row['cgm'];
-      $ano = $row['ano'];
-      $turma = $row['turma'];
+    	$cgm = $row['cgm'];
+      	$ano = $row['ano'];
+      	$turma = $row['turma'];
 		$nome = $row['nome'];
 		$nascimento = date("d/m/Y", strtotime($row['nascimento']));
 		$sexo = $row['sexo'];
@@ -54,7 +59,9 @@ $result = mysqli_query($connection, $sql);
 				<div align="center">
 				<h2>Editar Alunos'.$mostraCaixaSuspensa.'</h2>
 				'.$turmaQTDE.'
-				<hr width="50%"><hr width="70%"></div>
+				<hr width="50%">
+				'.$hoje.'
+				<hr width="70%"></div>
 				<div align="center">
 				<table border="1">
 				<tr>

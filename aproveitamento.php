@@ -50,7 +50,10 @@ if (isset($_POST['enviar'])) {
 		<head><title> Lista de alunos '.$_SESSION["anoTurma"].'</title></head>
 		<body>	
 			<form method="POST" action="?id=aproveitamento" onchange="form.submit()">
-				<div align="center"><h2>Aproveitamento de Alunos'.$mostraCaixaSuspensa.'</h2>'.$_SESSION["turmaQTDE"].'<hr width="50%"><hr width="70%"></div>
+				<div align="center"><h2>Aproveitamento de Alunos'.$mostraCaixaSuspensa.'</h2>'.$_SESSION["turmaQTDE"].'
+                <hr width="50%">
+                '.$hoje.'
+                <hr width="70%"></div>
 				<div align="left">
 				'.$_SESSION["formulario"].'
 				</div>
