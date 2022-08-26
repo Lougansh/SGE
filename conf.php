@@ -17,7 +17,7 @@ function menu(){
 						<li><a href="./editarPlanejamento.php" title="Planejamento">Planejamento</a></li>
 				  		<li><a href="./aproveitamento.php" title="Turmas">Aproveitamento</a></li>
 						<li><a href="./relatorio.php" title=" Relatorio de  alunos">Relatório</a></li>
-                  		<li><a href="./modJogos.php" title="Jogos Flash">Jogos</a></li>
+                  		<li><a href="./repositorio" title="Repositório de Arquivos">Repositório</a></li>
 					</ul>
 				</div>
 			</div>
