@@ -60,6 +60,15 @@ p {
 	-moz-border-radius:15px; 
 	-webkit-border-radius:15px; 
 }	
+#ocorrencia table{
+	border-collapse: collapse;
+	border: 1px solid rgb(0, 0, 0);
+	width: 30%;
+	margin: 10px;
+	padding: 0;
+	font-size: 12px;
+	overflow: hidden;
+}
 #menu ul {
 			margin:0px;
 			padding: 5px;

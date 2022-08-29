@@ -4,6 +4,10 @@ include("conexao.php");
 include("conf.php");
 menu();
 
+setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+date_default_timezone_set('America/Sao_Paulo');
+$hoje =  strftime('%A, %d de %B de %Y', strtotime('today'));
+
 if (isset($_POST['Lista']) && $_POST['Lista'] != ''){
 $ano = substr($_POST['Lista'],0,1);
 $turma = substr($_POST['Lista'],1,1);
@@ -33,12 +37,8 @@ $result = mysqli_query($connection, $sql);
 		$observacao = $row['observacao'];
 		$lista = $lista.'
 		<tr>
-			<td align="center">'.$cgm.'</td>
-			<td align="center">'.$ano.'</td>
-			<td align="center">'.$turma.'</td>
 			<td>'.$nome.'</td>
-			<td align="center"><a href="editarDireto.php?cgm='.$cgm.'">Editar</a></td>
-			<td align="center"><a href="info.php?cgm='.$cgm.'">Informações</a></td>
+			<td align="center"><a href="registrarOcorrencia.php?cgm='.$cgm.'">Registar</a></td>
 		</tr>
 		';
 		$_SESSION["alunos"] = $lista;
@@ -51,7 +51,7 @@ $result = mysqli_query($connection, $sql);
 		<head><title> Lista de alunos '.$ano.'º'.$turma.'</title></head>
 		<body>	
 			<form method="POST" action="?id=Lista" onchange="form.submit()">
-			<div id="editar">
+			<div id="ocorrencia">
 				<div align="center">
 				<h2>Editar Alunos'.$mostraCaixaSuspensa.'</h2>
 				'.$turmaQTDE.'
@@ -61,12 +61,8 @@ $result = mysqli_query($connection, $sql);
 				<div align="center">
 				<table border="1">
 				<tr>
-					<td align="center">CGM</td>
-					<td align="center">Ano</td>
-					<td align="center">Turma</td>
-					<td align="center">Nome</td>
-					<td align="center">Editar</td>
-					<td align="center">Observação</td>
+					<td align="center" width="80%">Nome</td>
+					<td align="center" width="20%">Ocorrência</td>
 				</tr>
 				'.$_SESSION["alunos"].'
 				</table>
