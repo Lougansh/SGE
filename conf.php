@@ -16,6 +16,7 @@ function menu(){
 				  		<li><a href="./turma.php" title="Turmas">Turmas</a></li>
 						<li><a href="./editarPlanejamento.php" title="Planejamento">Planejamento</a></li>
 				  		<li><a href="./aproveitamento.php" title="Turmas">Aproveitamento</a></li>
+						<li><a href="./ocorrencia.php" title="Ocorrências">Ocorrências</a></li>
 						<li><a href="./relatorio.php" title=" Relatorio de  alunos">Relatório</a></li>
                   		<li><a href="./repositorio" title="Repositório de Arquivos">Repositório</a></li>
 					</ul>

@@ -3,7 +3,29 @@ session_start();
 include './conexao.php';
 include './conf.php';
 menu();
-//----------------------------------------------------------------------------------------------------------------------------------
+$dicasOcorrencia = 
+'
+O aluno não adquiriu os conceitos, está em fase de aprendizado. <br>
+Ainda não desenvolveu habilidades para convívio no ambiente escolar, pois agride outros alunos. <br>
+Apresentou dificuldade de autocontrole, pois tomou para si algo que não lhe pertencia. <br>
+Demonstrou agressividade em situações de conflito. Usando meios físicos para alcançar o que deseja. <br>
+Foi observado que ainda não desenvolveu hábitos próprios de higiene e de cuidado com seus pertences. <br>
+Aparentou ser desassistido pela família, pois usa palavras de baixo calão. <br>
+Não aceitou ou compreendeu as solicitações do professor. <br>
+Não quis cumprir as regras estabelecidas para o uso do laboratório. <br>
+Não demonstrou interesse em participar das atividades propostas, até pareceu se desligar da realidade, envolvido em seus pensamentos. <br>
+Utilizou inverdades para justificar seus atos ou relatar as atitudes dos colegas. <br>
+Costuma se preocupar com os hábitos e atitudes dos colegas ou invés de fazer suas atividades. <br>
+Em situações de conflito colocou-se como espectador, mesmo quando estava clara a sua participação. <br>
+Não realizou as tarefas, aparentando desânimo e cansaço. Porém logo partiu para as brincadeiras e outras atividades. <br>
+O tempo todo deseja atenções diferenciadas para si, solicitando que sejam feitas todas as suas vontades. <br>
+Costuma falar mais que o necessário, não respeitando os momentos em que o grupo necessita de silêncio. <br>
+Utilizou palavras pouco cordiais para afrontar seus colegas. <br>
+Apresentou comportamento fora do comum para sua idade e para o convívio em grupo. <br>
+Não soube dividir o espaço e os materiais de forma coletiva.
+';
+$dicasOcorrencia = str_replace('<br>', "\r", $dicasOcorrencia);
+//------------------------------------------------------------------------------------------------------------
 if($_SERVER['REQUEST_METHOD']=='GET') {
 	if(isset($_GET['cgm'])){
 		$cgm = $_GET['cgm'];		
@@ -24,12 +46,13 @@ if($_SERVER['REQUEST_METHOD']=='GET') {
         $mesMatricula = date("m", strtotime($row['dataMatricula']));
         $anoMatricula = date("Y", strtotime($row['dataMatricula']));
         $observacao = $row['observacao'];
+        $ocorrencia = $row['ocorrencia'];
         $dificuldade = $row['dificuldade'];
         $robotica = $row['robotica'];
 		}
 	}
 }
-$inicio = $hoje.' - '.$nome;
+$inicio = $hoje.' - '.$nome.'.';
 //------------------------------------------------------------------------------------------------------------
 if (isset($_POST['btnSalvar']) && $_POST['textCGM'] != ''){
     $cgm = $_POST['textCGM'];
@@ -49,17 +72,17 @@ if (isset($_POST['btnSalvar']) && $_POST['textCGM'] != ''){
     $result = mysqli_query($connection, $sql);
     if($result){echo'
         <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
-            alert ("Atualizado com sucesso!!!")
-            window.location="listar.php"	
+            alert ("Ocorrência registrada com sucesso!!!")
+            window.location.href = "https://wa.me/45999941833?text='.$ocorrencia.'";
         </SCRIPT>
     ';
     }
 }
-//----------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------
 echo
 	'<html>
 	<head>
-	<title>Cadastro de aluno</title>
+	<title>Registro de Ocorrências</title>
 	</head>
 	<body>
 		<div align="center"><h2>Registro de Ocorrência</h2><hr width="50%"><hr width="70%"></div>
@@ -67,11 +90,10 @@ echo
 				<div align="center">
 					<br><table border="0">
 						<tr>
-							<td rowspan="7" align="center" width="315"><hr width="10%"><hr width="30%"><hr width="50%">
-							<img src="../uploads/logoNew.png" width="100">
-								<hr width="50%">
-								<hr width="30%">
-								<hr width="10%">
+							<td rowspan="7" align="center" width="315">
+                                <hr width="10%"><hr width="30%"><hr width="50%">
+                                <img src="../uploads/logoNew.png" width="100">
+                                <hr width="50%"><hr width="30%"><hr width="10%">
 							</td>
 						</tr>
 						<tr>	
@@ -129,8 +151,11 @@ echo
 						</tr>
 					</table>
 					<h2>Dicas para ocorrências</h2>
-					<div align="justify">
-                    <p>O aluno não adquiriu os conceitos, está em fase de aprendizado. Ainda não desenvolveu habilidades para convívio no ambiente escolar, pois agride outros alunos. Apresentou dificuldade de autocontrole, pois tomou para si algo que não lhe pertencia. Demonstrou agressividade em situações de conflito. Usando meios físicos para alcançar o que deseja. Foi observado que ainda não desenvolveu hábitos próprios de higiene e de cuidado com seus pertences. Aparentou ser desassistido pela família, pois usa palavras de baixo calão. Não aceitou ou compreender as solicitações do professor. Não quis em cumprir regras. Não demonstrou interesse em participar das atividades propostas, até pareceu se desligar da realidade, envolvido em seus pensamentos. Utilizou inverdades para justificar seus atos ou relatar as atitudes dos colegas. Costuma se preocupar com os hábitos e atitudes dos colegas ou invés de fazer suas atividades. Em situações de conflito colocou-se como espectador, mesmo quando estava clara a sua participação. Não realizou as tarefas, aparentando desânimo e cansaço. Porém logo partiu para as brincadeiras e outras atividades. O tempo todo deseja atenções diferenciadas para si, solicitando que sejam feitas todas as suas vontades. Costuma falar mais que o necessário, não respeitando os momentos em que o grupo necessita de silêncio. Utilizou palavras pouco cordiais para afrontar seus colegas. Apresenta comportamento fora do comum para sua idade e para o convívio em grupo, tais como utilizar os equipamentos pra ver pornografia durante o horário de aula mesmo sabendo que os computadores são monitorados. Não soube dividir o espaço e os materiais de forma coletiva.</p>
+					<div align="center">
+                    <textarea rows="10" name="dicasOcorrencia" cols="150">
+                    '.$dicasOcorrencia.'
+                        
+                    </textarea>
 					</div>
 				</div>
 		</form>
