@@ -1,0 +1,53 @@
+﻿<?php
+include './conf.php';
+menuA();
+?>
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p align="center"><font size="6"><strong>
+</strong>
+</font><br>
+</p>
+<p align="center"></p>
+</td></tr></table><table dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top" width="1%">
+</td><td valign="top" width="24"></td><td valign="top">
+<div align="center">
+<table border="0">
+<tr>
+<td align="center">&nbsp;</td>
+<td align="center"><a title="Histórico do aluno" href="historico.php"><img src="../images/observacao.gif" width="80" height="80"></a></td>
+<td align="center"><a title="Sistema de Identificação" href="fotoIdentGeral.php"><img src="../images/foto.jpg" width="82" height="80"></a></td>
+<td align="center"><a title="Lista de alunos" href="lista.php">
+<img src="../images/lista.gif" width="70" height="80"></a></td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center"><a title="Sistema de avaliação e pré-conselho" href="avaliacao.php"><img src="../images/meeting.jpg" width="82" height="80"></a></td>
+<td align="center">&nbsp;</td>
+<td align="center"><a title="Controle de Reforço" href="dificuldade.php"><img src="../images/reforco.jpg" width="82" height="80"></a></td>
+<td align="center">&nbsp;</td>
+<td align="center"><a title="Gerenciador de grupos" href="grupos.php"><img src="../images/trabgrupo.gif" width="80" height="80"></a></td>
+</tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="center"><a title="Galeria de fotos" href="../PhotoShow/"><img src="../images/galeria.gif" width="77" height="80"></a></td>
+<td align="center"><a title="Sistema Estadual de Registro Escolar" href="listaGeral.php"><img src="../images/sere.jpg" width="80" height="80"></a></td>
+<td align="center"><a title="Sistema Estadual de Registro Escolar" href="alunoDificuldade.php"><img src="../images/duvida.jpg" width="80" height="80"></a></td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center"><a title="Informações Confidenciais" href="informacoes.php"><img src="../images/info.gif" width="80" height="80"></a></td>
+<td align="center">&nbsp;</td>
+<td align="center"><a title="SQL" href="sql.php"><img src="../images/sql.jpg" width="82" height="80"></a></td>
+<td align="center">&nbsp;</td>
+<td align="center"><a title="Pesquisa simples" href="pesquisa.php"><img src="../images/pesquisa.gif" width="80" height="80"></a></td>
+</tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="center"><a title="Area de downloads e atividades" href="../biblioteca/"><img src="../images/download.gif" width="80" height="80"></a></td>
+<td align="center"><a title="Apresentação geral dos alunos" href="fotoIdentGeral.php"><img src="../images/fotoGeral.gif" width="82" height="80"></a></td>
+<td align="center"><a title="Picoli Web Chat" href="../chatAjax/"><img src="../images/chat.jpg" width="80" height="80"></a></td>
+<td align="center">&nbsp;</td>
+</tr>
+</table>
+</div>
+</td></tr></table>

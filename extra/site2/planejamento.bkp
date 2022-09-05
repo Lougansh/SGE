@@ -1,0 +1,320 @@
+﻿<?php
+include './conexao.php';
+include './conf.php';
+head();
+menuVertical();
+echo '
+<div class="Body">
+';
+$sql = "SELECT * from tb_turma turma order by ano desc, turma desc";
+$query = mysql_query($sql) or die("SQL:" . $sql . " - ERRO:" . mysql_error());
+while ($linha = mysql_fetch_array($query)) {
+if ($linha['Ano'] == 0){$decodAno = 'Pre';}else{$decodAno = $linha['Ano'];}
+$retTurma = '<input type="radio" value="'.$linha['Ano'].$linha['Turma'].'"  name="R1" onchange="form.submit()">'.$decodAno.$linha['Turma'].$retTurma;
+}
+mysql_free_result($query);
+echo'<p align="center">PLANEJAMENTO CURSO DE INFORMÁTICA</p><form method="POST" action="?id=18" onchange="form.submit()"><div align="Center">'.$retTurma.'</div>';
+//------------>
+if (isset($_POST['R1']) && $_POST['R1'] != ''){
+$ano = substr($_POST['R1'],0,1);
+if ($ano == 0){
+echo '<table border="0" width="100%">
+<tr>
+<td valign="top" align="center"><font size="7">PRÉ - ESCOLA</font></td>
+</tr>
+<tr>
+<td valign="top" align="center">Ludico / Coordenação Motora</td>
+</tr>
+<tr>
+<td valign="top">GCompris</td>
+</tr>
+</table>';
+}
+if ($ano == 1){
+echo'
+<table border="0" width="100%">
+<tr>
+<td valign="top" align="center"><font size="7">1º Ano</font></td>
+</tr>
+<tr>
+<td valign="top" align="center">Coordenação Motora</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;</td>
+</tr>
+</table>
+';
+}
+if ($ano == 2){
+echo'
+<table border="0" width="100%">
+<tr>
+<td valign="top" align="center"><font size="7">2º Ano</font></td>
+</tr>
+<tr>
+<td valign="top" align="center">Informática Educacional</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;</td>
+</tr>
+</table>
+';
+}
+if ($ano == 3){
+echo'
+<table border="0" width="100%">
+<tr>
+<td valign="top" align="center"><font size="7">3º Ano</font></td>
+</tr>
+<tr>
+<td valign="top" align="center">Internet</td>
+</tr>
+<tr>
+<td valign="top">Navegador<ul>
+<li>Tipos de navegadores e&nbsp; suas funcionalidades básicas
+<li>Como navegar através da barra de endereços
+<li>Como pesquisar através da barra de pesquisas
+<li>Como baixar arquivos utilizando o navegador
+<li>Como enviar um arquivo usando serviços online
+<li>Redes sociais<li>Baixando vídeos no Youtube
+<li>Baixando de forma segura, musicas e fotos para seu computador (4Shared)
+</ul>
+<p>&nbsp;</td>
+</tr>
+</table>
+';
+}
+if ($ano == 4){
+echo'
+<table border="0" width="100%">
+<tr>
+<td valign="top" align="center"><font size="7">4º Ano</font></td>
+</tr>
+<tr>
+<td valign="top" align="center">Informática Instrumental</td>
+</tr>
+<tr>
+<td valign="top">Editor de textos<ul>
+<li>O Editor de Texto - WRITER<li>Janela Principal - Writer<li>
+Identificando as Principais Barras<li>Inserindo e retirando barras 
+de ferramentas<li>Régua Horizontal e Vertical 
+<li>Indicadores de Limites do texto<li>Criando um novo documento<li>
+Abrindo um Documento Existente<li>Salvando, convertendo e exportando 
+documentos<li>Salvando COMO<li>Exportando um Arquivo para PDF<li>
+Conversão em Lote<li>Formatando Documentos<li>Fontes com Efeitos<li>
+Configurações de Parágrafos<li>Manipulando Conteúdo<li>Função Colar 
+Especial<li>Copiando apenas os formatos (estilos)<li>Caracteres 
+Especiais<li>Campos Dinâmicos<li>Manipulando Comentários/Anotações e 
+Alterações<li>Manipulando Propriedades de Identificação<li>
+Trabalhando com Imagens<li>Hiperlink<li>Trabalhando com Estilos<li>
+Índices/Sumários Automáticos<li>Formatação de Página e Quebras<li>
+Orientações Diferentes no Mesmo Documento<li>Cabeçalhos e Rodapés<li>
+Configurando Colunas e Bordas<li>Configurando Notas de Rodapé<li>
+Manipulação de Desenhos e FontWork<li>Manipulação de Tabelas<li>
+Análise Ortográfica – Manipulação do Dicionário<li>Treinando o 
+Corretor Ortográfico<li>Mala Direta</ul>
+<p>Planilha Eletrônica (LibreOffice Calc)</p>
+<ul>
+<li>Como iniciar o Calc</li>
+<li>O ambiente do Calc</li>
+<li>Edição dos dados</li>
+<li>Alteração do conteúdo da célula</li>
+<li>Movimentação pela planilha</li>
+<li>Largura da coluna e da linha</li>
+<li>Salvar uma planilha</li>
+<li>Fechar e sair</li>
+<li>Abrir uma planilha existente</li>
+<li>Ampliar ou reduzir a exibição</li>
+<li>Cópia e movimentação de células</li>
+<li>Criar fórmulas</li>
+<li>Listas de preenchimento</li>
+<li>Criar novas listas</li>
+<li>Classificação de dados</li>
+<li>Aplicação de novas cores nas guias das planilhas</li>
+<li>Inserção e exclusão de planilhas</li>
+<li>Mover e copiar planilhas</li>
+<li>Inserir colunas ou linhas</li>
+<li>Excluir colunas ou linhas</li>
+<li>Proteção de planilhas e documento</li>
+<li>Ocultar e reexibir colunas e linhas</li>
+<li>Intervalos de células</li>
+<li>Formatar dados</li>
+<li>Alinhamento do conteúdo das células</li>
+<li>Limpar a formatação</li>
+<li>Ferramenta pincel</li>
+<li>Cores e padrões nas células</li>
+<li>Bordas</li>
+<li>Formatação automática e condicional</li>
+<li>Estilo</li>
+<li>Comentários nas células</li>
+<li>Elaboração de fórmulas</li>
+<li>Funções</li>
+<li>Gráficos</li>
+<li>Edição de gráficos</li>
+<li>Elementos de apoio</li>
+<li>Impressão dos dados das planilhas</li>
+<li>Personalizar as configurações da página</li>
+<li>Visualização prévia</li>
+<li>Especificar as opções de impressão</li>
+<li>Utilização de mais de uma janela</li>
+<li>Divisão de janelas</li>
+<li>Congelar títulos </li>
+</ul>
+<p>Apresentação de slides </p>
+<ul>
+<li>O que é Impress?</li>
+<li>Iniciando o Impress</li>
+<li>Partes da Janela Principal do Impress</li>
+<li>Painel de slides </li>
+<li>Painel de tarefas</li>
+<li>Área de trabalho </li>
+<li>Barras de ferramentas </li>
+<li>Barra de status</li>
+<li>Navegador9</li>
+<li>Exibições da área de trabalho</li>
+<li>Exibição estrutura de tópicos</li>
+<li>Exibição Notas</li>
+<li>Exibição Folheto</li>
+<li>Exibição classificador de slides</li>
+<li>Personalizando a exibição classificador de slides</li>
+<li>Movendo um slide usando o Classificador de slide</li>
+<li>Selecionando e movendo grupos de slides</li>
+<li>Trabalhando na exibição Classificador de slides</li>
+<li>Renomeando slides</li>
+<li>Criando uma nova apresentação</li>
+<li>Exercícios</li>
+<li>Formatando uma apresentação</li>
+<li>Inserindo slides</li>
+<li>Selecionando um layout</li>
+<li>Modificando os elementos de slide</li>
+<li>Adicionando texto a um slide</li>
+<li>Modificando a aparência de todos os slides</li>
+<li>Modificando a apresentação de slides</li>
+<li>Adicionando e formatando texto</li>
+<li>Usando caixas de texto criadas a partir do painel Layouts</li>
+<li>Usando caixa de texto criadas a partir da ferramenta caixa de 
+texto</li>
+<li>Rápido redimensionamento da fonte</li>
+<li>Colando texto</li>
+<li>Colando texto não formatado</li>
+<li>Formatando texto colado</li>
+<li>Criando listas de marcadores e numeração</li>
+<li>Criando listas em caixas de texto Layout automático</li>
+<li>Criando listas em outras caixas de texto</li>
+<li>Criando um novo nível de texto</li>
+<li>Alterando a aparência da lista</li>
+<li>Adicionando imagens, tabelas, gráficos e filme</li>
+<li>Adicionando imagens</li>
+<li>Adicionando tabelas</li>
+<li>Adicionando gráficos</li>
+<li>Adicionando clips de mídia</li>
+<li>Adicionando gráficos, planilhas, e outros objetos</li>
+<li>Trabalhando com slide mestre e estilos</li>
+<li>Estilos</li>
+<li>Slides mestres</li>
+<li>Criando um slide mestre</li>
+<li>Aplicando um slide mestre</li>
+<li>Carregando slides mestres adicionais</li>
+<li>Modificando um slide mestre</li>
+<li>Usando um slide mestre para adicionar texto para todos os slides</li>
+<li>Adicionando comentários a uma apresentação</li>
+<li>Configurando a apresentação de slide</li>
+<li>Um conjunto de slides – várias apresentações</li>
+<li>Transições de slide</li>
+<li>Avançar slides automaticamente</li>
+<li>Executando a apresentação de slides</li>
+</ul></td>
+</tr>
+</table>
+';
+}
+if ($ano == 5){
+echo'
+<table border="0" width="100%">
+<tr>
+<td valign="top" align="center"><font size="7">5º Ano</font></td>
+</tr>
+<tr>
+<td valign="top" align="center">Programação</td>
+</tr>
+<tr>
+<td valign="top">Lógica de programação
+<ul>
+<li>Introdução à Lógica de Programação</li>
+<li>Lógica</li>
+<li>Seqüência Lógica </li>
+<li>Instruções</li>
+<li>Algoritmo</li>
+<li>Programas</li>
+<li>Desenvolvendo algoritmos </li>
+<li>Pseudocódigo </li>
+<li>Regras para construção do Algoritmo</li>
+<li>Exemplo de Algoritmo</li>
+<li>Teste de Mesa</li>
+<li>Diagrama de Bloco </li>
+<li>O que é um diagrama de bloco? </li>
+<li>Simbologia </li>
+<li>Constantes, Variáveis e Tipos de Dados</li>
+<li>Constantes</li>
+<li>Variáveis</li>
+<li>Tipos de Variáveis </li>
+<li>Declaração de Variáveis </li>
+<li>Operadores </li>
+<li>Operadores Aritméticos</li>
+<li>Operadores Relacionais</li>
+<li>Operadores Lógicos</li>
+<li>Operações Lógicas</li>
+<li>Estrutura de Decisão e Repetição</li>
+<li>Comandos de Decisão </li>
+<li>Comandos de Repetição</li>
+<li>Arquivos de Dados</li>
+<li>Conceitos Básicos</li>
+<li>Abertura de Arquivos</li>
+<li>Fechamento de Arquivos</li>
+<li>Leitura de Arquivos</li>
+<li>Movimentação de registros</li>
+<li>Gravação de Arquivos</li>
+<li>Características do Formulário</li>
+<li>Controle de linhas e salto de páginas</li>
+</ul></td>
+</tr>
+</table>
+';
+}
+}else{
+echo'
+<table border="0" width="100%">
+<tr>
+<td valign="top" align="center"><b><font size="7">Todas as Séries</font></b></td>
+</tr>
+<tr>
+<td valign="top">Ludico / Coordenação Motora</td>
+</tr>
+<tr>
+<td valign="top">Introdução a informática
+<ul>
+<li>Regras do laboratório
+<li>Apresentação das maquinas
+<li>Conhecendo o teclado e o mouse
+</ul>
+<p>Hardware
+</p>
+<ul>
+<li>Tipos de hardware e suas funcionalidades
+<li>Revisão sobre hardware (Apresentação de peças)
+</ul>
+<p>Software
+</p>
+<ul>
+<li>Tipos de software
+<li>Sistema Operacional
+<li>Programas
+<li>Jogos
+<li>Aplicativos
+<li>Utilitários
+</ul></td>
+</tr>
+</table>
+';
+}
+?>

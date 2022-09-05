@@ -1,0 +1,68 @@
+﻿<?php
+include 'conexao.php';
+//include 'conf.php';
+
+#new barCodeGenrator($code_number,0,'hello.gif'); 
+
+//-----------Monta dropSelect da lista dos alunos
+$sql = "select a.*, t.Professor  from tb_aluno a, tb_turma t where a.ano = t.ano and a.turma = t.turma and a.programacao = 'S' Order By nome desc";
+$query = mysql_query($sql) or die("SQL:" . $sql . " - ERRO:" . mysql_error());
+$i = 0;
+while ($linha = mysql_fetch_array($query)) {
+$i++;
+if ($i>=4){
+$i = 0;
+echo'
+<form method="POST" action="?id=carteirinha"><div align="center"><table border="0" width="99%" style="border-collapse: collapse">
+<tr><td width="40%" valign="bottom"><div align="center"><br>
+	<fieldset style="padding: 2"><legend><div align="left"><font size="5">Terezinha Picoli Cezarotto</font></div></legend><table border="0" width="90%"><tr>
+<td width="30%" valign="top"><p align="center">
+	<img border="0" src="../images/alunos/'.$linha['ID'].'.JPG" width="96" height="125" style="border-radius: 15px;"></td>
+<td width="70%" valign="top">
+	<fieldset style="margin:1; padding:2; word-spacing:0; line-height:1; text-indent:0"><legend>Curso</legend><div align="center"><font size="2">PROGRAMAÇÃO</font></fieldset>
+	<center><b><font size="1" color="#0000FF"><br>
+	'. $linha['Nome'].'<br>
+&nbsp;</font></b></center>
+	<fieldset style="padding: 2"><legend>Responsável / Contato</legend><div align="center"><font size="2">'. $linha['Responsavel'].' - '. $linha['Telefone'].'</font></fieldset></td></tr><tr>
+<td width="100%" valign="top" colspan="2">
+	<fieldset style="padding: 2"><legend>Professora</legend><div align="center"><font size="2">'.$linha['Professor'].'</font></fieldset></td></tr></table></fieldset><br></td>
+<td width="40%" align="center"><font size="3">http://picoli.sytes.net<br><img border="0" src="../images/codBar/'.$linha['ID'].'.gif"></font></td></tr>
+</table><hr style="text-align: center; word-spacing: 0; line-height: 100%; margin: 0"></form>
+';
+echo "<div style='page-break-before:always;'>&nbsp</div>";	
+}else{
+echo'
+<form method="POST" action="?id=carteirinha"><div align="center"><table border="0" width="99%" style="border-collapse: collapse">
+<tr><td width="40%" valign="bottom"><div align="center"><br>
+	<fieldset style="padding: 2"><legend><div align="left"><font size="5">Terezinha Picoli Cezarotto</font></div></legend><table border="0" width="90%"><tr>
+<td width="30%" valign="top"><p align="center">
+	<img border="0" src="../images/alunos/'.$linha['ID'].'.JPG" width="96" height="125" style="border-radius: 15px;"></td>
+<td width="70%" valign="top">
+	<fieldset style="margin:1; padding:2; word-spacing:0; line-height:1; text-indent:0"><legend>Curso</legend><div align="center"><font size="2">PROGRAMAÇÃO</font></fieldset>
+	<center><b><font size="1" color="#0000FF"><br>
+	'. $linha['Nome'].'<br>
+&nbsp;</font></b></center>
+	<fieldset style="padding: 2"><legend>Responsável / Contato</legend><div align="center"><font size="2">'. $linha['Responsavel'].' - '. $linha['Telefone'].'</font></fieldset></td></tr><tr>
+<td width="100%" valign="top" colspan="2">
+	<fieldset style="padding: 2"><legend>Professora</legend><div align="center"><font size="2">'.$linha['Professor'].'</font></fieldset></td></tr></table></fieldset><br></td>
+<td width="40%" align="center"><font size="3">http://picoli.sytes.net<br><img border="0" src="../images/codBar/'.$linha['ID'].'.gif"></font></td></tr>
+</table><hr style="text-align: center; word-spacing: 0; line-height: 100%; margin: 0"></form>
+';
+}
+
+}
+mysql_free_result($query);
+echo'';
+
+?>
+<head><link rel="shortcut icon" href="../images/favicon.ico"><style type="text/css">
+fieldset {
+border:2px solid black;
+background-color: #f0ffff;
+-moz-border-radius:15px; -webkit-border-radius:15px; border-radius:15px;
+}
+legend {
+background-color: #ffffff;
+-moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;
+}
+</style><title>Carteirinha</title></head>

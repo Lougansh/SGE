@@ -1,0 +1,168 @@
+﻿<?php
+session_start(atividade);
+include 'conexao.php';
+include 'conf.php';
+menuVertical();
+head();
+$ID = $_SESSION['ID'];
+echo'
+<div class="cantoDireitoAtividades"><form method="POST" action="?atividades">Matricula: <input autofocus type="text" name="ID" size="10"  style="text-align: center"></div>
+';
+if (isset($_POST['ID']) && $_POST['ID'] >1000 ){
+$_SESSION['ID'] = $_POST['ID'];
+}
+if (isset($_SESSION['ID'])){
+$ID = $_SESSION['ID'];
+$sql = "select * from tb_aluno a, tb_turma t where a.ID = $ID and a.ano = t.ano and a.turma = t.turma";
+$query = mysql_query($sql) or die("SQL:" . $sql . " - ERRO:" . mysql_error());
+while ($linha = mysql_fetch_array($query)) {
+$nome = $linha['Nome'];
+$data = $linha['Nascimento'];
+$date = new DateTime($linha['Nascimento']);
+$interval = $date->diff( new DateTime( date() ) );
+if ($linha['Sexo']=='F'){$sexo = 'FEMININO';}elseif($linha['Sexo']=='M'){$sexo = 'MASCULINO';}
+if ($linha['Responsavel'] == ''){$responsavel = '<font color="darkred">NÃO CADASTRADO</font>';}else{$responsavel = $linha['Responsavel'];}
+$contato = $linha['Telefone'];
+$avaliacao = strtoupper( $linha['Avaliacao']);
+$ano = $linha['Ano'];
+$turma = $linha['Turma'];
+$professor = $linha['Professor'];
+$pontos = $linha['Ponto'];
+}
+mysql_free_result($query);
+$sql = "select * from tb_atividade where ID = $ID";
+$query = mysql_query($sql) or die("SQL:" . $sql . " - ERRO:" . mysql_error());
+while ($linha = mysql_fetch_array($query)) {
+$retorno = $linha['IP'].' | '.$linha['Atividade'].$retorno;
+}
+echo'
+<div class="Body"><div align="center">
+<table border="1" width="100%" style="border-width:0px; border-collapse: collapse; "><tr>
+<td width="20%" align="center" valign="bottom" style="border-style: none; border-width: medium"><hr color="#0000FF" width="33%"><hr color="#FFFF00" width="66%"><hr color="#00FF00" width="99%"><img src="../images/alunos/'.$_SESSION["ID"].'.JPG" width="230" height="325" style="border-radius: 15px;"><hr color="#00FF00" width="99%"><select size="0" name="dropAluno"><option value="'.$_SESSION['ID'].'">'.$_SESSION['ID'].'</option></select><hr color="#0000FF" width="33%"></td>
+<td width="40%" align="center" valign="bottom" style="border-style:none; border-width:medium; ">
+<textarea rows="25" name="atividades" cols="54">Digite aqui o conteúdo da atividade...</textarea>
+<button value="Salvar" name="btnSalvar" title="Click aqui para salvar" style="border-radius: 5px;"><img src="../images/btnSalvar.jpg" width="35" height="35"></button></td>
+<td width="40%" align="center" valign="top" rowspan="2" style="border-style: none; border-width: medium;">
+<textarea rows="37" name="retornoAtividades" cols="69">'.$retorno.'</textarea></td></tr><tr>
+<td align="justify" valign="top" colspan="2" style="border-style: none; border-width: medium"><font size="4"><font color="#999999">
+Meu nome é </font>'.$nome.', 
+<font color="#999999">Eu nasci no dia </font>'.date("d/m/Y", strtotime($data)).', 
+<font color="#999999">hoje tenho exatamente </font>'.$interval->format( '%Y Anos, %m Meses e %d Dias' ).', 
+<font color="#999999">sou do sexo </font>'.strtolower($sexo).', 
+<font color="#999999">meu responsável legal é </font>'.$responsavel.', 
+<font color="#999999">meu telefone para contato é </font>'.$contato.', 
+<font color="#999999">na minha ultima avaliação recebi: </font>'.$avaliacao.', 
+<font color="#999999">eu estudo no </font> '.$ano.'º ano "'.$turma.'", 
+<font color="#999999">minha professora é a Sra. </font><font color="darkred">'.$professor.', </font>
+<font color="#999999">na minha ultima pontuação eu ainda tinha </font> '.$pontos.' <font color="#999999">pontos.</font></font></td></tr></table></div></div>
+';
+}
+if (isset($_POST['btnSalvar']) && ($_POST['atividades'] != 'Digite aqui o conteúdo da atividade...')){
+$matricula = $_POST['dropAluno'];
+$ip = $_SERVER["REMOTE_ADDR"];
+$dataEnviar = date("d/m/Y H:i:s "); 
+$atividade = $dataEnviar.' \r\n '.$_POST['atividades'].'\r\r\n';
+$sql = "insert into tb_atividade (ID, Atividade, IP) values ('$matricula', '$atividade', '$ip')"; 
+$query = mysql_query($sql);
+echo "<meta HTTP-EQUIV='refresh' CONTENT='0'>";
+}elseif (isset($_POST['btnSalvar']) && ($_POST['atividades'] == 'Digite aqui o conteúdo da atividade...')){
+//echo'<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">alert (" Erro ao salvar sua atividade. \n Deixa de ser preguiçoso... \n Complete a atividade antes de salvar!!!")</SCRIPT>';
+}
+if (!isset($_SESSION['ID']) ){
+echo'
+<div class="Body">
+<p>Curso de Programação On-Line</p>
+<ul>
+	<li><a href="https://code.org/teacher-dashboard#/sections">Studio Code Org - 
+	Controle do Professor</a></li>
+	<li><a href="https://studio.code.org/sections/GUUTRN">Studio Code Org - Curso de&nbsp; Programação 2014</a></li>
+	<li><a href="https://studio.code.org/sections/WVPDNN">Studio Code Org - Curso de&nbsp; Programação 2015</a></li>
+	<li><a href="https://studio.code.org/sections/ZLCQYQ">Studio Code Org - Curso de&nbsp; Programação 2016</a></li>
+	<li><a href="https://studio.code.org/sections/PYVVVB">Studio Code Org - Curso de&nbsp; Programação 2017</a></li>
+	<li><a href="https://studio.code.org/sections/RCNCVG">Studio Code Org - Curso de&nbsp; Hora do Codigo 5C - 2016</a></li>	
+	<li><a href="https://studio.code.org/sections/YBMLSC">Studio Code Org - Curso de&nbsp; Hora do Codigo 5A - 2016</a></li>
+	<li>--------------------------2017--------------------------</li>
+	<li><a href="http://studio.code.org/sections/ZKGKVQ">Studio Code Org - 4A - 2017</a></li>
+	<li><a href="http://studio.code.org/sections/PTNYXD">Studio Code Org - 4B - 2017</a></li>
+	<li><a href="http://studio.code.org/sections/VCYLWN">Studio Code Org - 4C - 2017</a></li>
+	<li><a href="http://studio.code.org/sections/FSFZMM">Studio Code Org - 5A - 2017</a></li>
+	<li><a href="http://studio.code.org/sections/XVKHFR">Studio Code Org - 5B - 2017</a></li>
+	<li><a href="http://studio.code.org/sections/FXMFCX">Studio Code Org - 5C - 2017</a></li>
+ 
+</ul>
+<p>Curso de Programação Scratch</p>
+<ol>
+	<li>
+	<a href="../biblioteca/scratch/00-Introdução.pdf">
+	Introdução</a></li>
+	<li>
+	<a href="../biblioteca/scratch/01-Felix-e-Herbert.pdf">
+	Felix e Herbert</a></li>
+	<li>
+	<a href="../biblioteca/scratch/02-Caça-às-Bruxas.pdf">
+	Caça as bruxas</a></li>
+	<li>
+	<a href="../biblioteca/scratch/03-Fogos-de-artifício.pdf">
+	Fogos de artifício</a></li>
+	<li>
+	<a href="../biblioteca/scratch/04-Jogo-das-frutas.pdf">
+	Jogo das Frutas</a></li>
+	<li>
+	<a href="../biblioteca/scratch/05-Peixe-Faminto.pdf">
+	Peixe faminto</a></li>
+	<li>
+	<a href="../biblioteca/scratch/06-Corrida%20no%20deserto.pdf">
+	Corrida no deserto</a></li>
+	<li>
+	<a href="../biblioteca/scratch/07-Adivinhe%20o%20que%20é.pdf">
+	Adivinhe o que é</a></li>
+	<li>
+	<a href="../biblioteca/scratch/08-Ferramenta%20de%20desenho.pdf">
+	Ferramenta de desenho</a></li>
+	<li>
+	<a href="../biblioteca/scratch/09-Crie%20o%20seu%20proprio%20jogo.pdf">
+	Crie seu próprio jogo</a></li>
+</ol>
+<p>Lógica de programação</p>
+<div id="watch-description-text" class style="font-size: 13px; color: rgb(51, 51, 51); font-family: Roboto, arial, sans-serif; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; border: 0px none; margin: 0px; padding: 0px; background: rgb(255, 255, 255)">
+	<p id="eow-description" style="font-size: 13px; border: 0px none; margin: 0px; padding: 0px; background:">
+	Acompanhe o RBtech também pelo site:<br>
+	<a target="_blank" title="http://www.rbtech.info" rel="nofollow" dir="ltr" class="yt-uix-redirect-link" style="font-size: 13px; color: rgb(22, 122, 198); cursor: pointer; text-decoration: none; border: 0px none; margin: 0px; padding: 0px; background:" href="http://www.rbtech.info/">
+	http://www.rbtech.info</a></div>
+<ul>
+	<li><a href="https://www.youtube.com/watch?v=Ds1n6aHchRU">Lógica de 
+	programação - Aula 01 - Introdução</a></li>
+	<li><a href="https://www.youtube.com/watch?v=JLlTo3SwxJE">Lógica de 
+	programação - Aula 02 - Tipos de algoritmo</a></li>
+	<li><a href="https://www.youtube.com/watch?v=7ph98Ih_ckc">Lógica de 
+	programação - Aula 03 - Legibilidade do código</a></li>
+	<li><a href="https://www.youtube.com/watch?v=vp4jgXA_BB0">Lógica de 
+	programação - Aula 04 - Variáveis e constantes</a></li>
+	<li><a href="https://www.youtube.com/watch?v=g0iIVeeQo1M">Lógica de 
+	programação - Aula 05 - Expressões, operadores e comandos</a><br>
+&nbsp;<ul class="watch-extras-section" style="list-style-type: none; font-size: 13px; border: 0px none; margin: 0px; padding: 0px; background:">
+		<li class="watch-meta-item yt-uix-expander-body" style="font-size: 13px; clear: both; border: 0px none; margin: 0px; padding: 0px; background:">
+		<h4 class="title" style="font-weight: 500; font-size: 11px; line-height: 11px; float: left; width: 100px; border: 0px none; margin-left: 0px; margin-right: 0px; margin-top: 0px; margin-bottom: 5px; padding: 0px; background:">
+		Categoria</h4>
+		<ul class="content watch-info-tag-list" style="list-style-type: none; font-size: 11px; line-height: 11px; border: 0px none; margin-left: 110px; margin-right: 0px; margin-top: 0px; margin-bottom: 5px; padding: 0px; background:">
+			<li style="font-size: 11px; display: inline; border: 0px none; margin: 0px; padding: 0px; background:">
+			<a class="yt-uix-sessionlink g-hovercard      spf-link " data-sessionlink="ei=dHLaVe3CDsWrc42alLgJ" data-ytid="UCiDF_uaU1V00dAc8ddKvNxA" style="font-size: 11px; color: rgb(22, 122, 198); cursor: pointer; text-decoration: none; white-space: nowrap; border: 0px none; margin: 0px; padding: 0px; background:" href="https://www.youtube.com/channel/UCiDF_uaU1V00dAc8ddKvNxA">
+			Ciência e tecnologia</a></li>
+		</ul>
+		</li>
+		<li class="watch-meta-item yt-uix-expander-body" style="font-size: 13px; clear: both; border: 0px none; margin: 0px; padding: 0px; background:">
+		<h4 class="title" style="font-weight: 500; font-size: 11px; line-height: 11px; float: left; width: 100px; border: 0px none; margin-left: 0px; margin-right: 0px; margin-top: 0px; margin-bottom: 5px; padding: 0px; background:">
+		Licença</h4>
+		<ul class="content watch-info-tag-list" style="list-style-type: none; font-size: 11px; line-height: 11px; border: 0px none; margin-left: 110px; margin-right: 0px; margin-top: 0px; margin-bottom: 5px; padding: 0px; background:">
+			<li style="font-size: 11px; display: inline; border: 0px none; margin: 0px; padding: 0px; background:">
+			Licença padrão do YouTube</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+</ul>
+<div align="center"><fieldset><a href="https://goo.gl/forms/9AE5uWlut5uJDPVR2">Avaliação do Curso de Programação do Projeto Construindo o Futuro Hoje</a></fieldset></div>
+</div>
+';
+}
+?>

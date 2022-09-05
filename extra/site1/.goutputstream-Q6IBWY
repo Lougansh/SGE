@@ -1,0 +1,10 @@
+<?php
+include './conexao.php';
+include './conf.php';
+head();
+menuVertical();
+$horas = date('H:i:s');
+$diasemana = array('Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado');
+$data = date('Y-m-d');
+$dia = date('w', strtotime($data));
+//

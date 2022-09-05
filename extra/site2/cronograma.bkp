@@ -1,0 +1,132 @@
+﻿<?php
+include './conexao.php';
+include './conf.php';
+head();
+menuVertical();
+?>
+<div class="Body">
+
+<p align="center">HORÁRIO DE ATENDIMENTO DA INFORMÁTICA</p>
+<div align="center">
+	<table border="1" style="border-width: 0px; border-collapse:collapse">
+		<tr>
+			<td width="60" style="border-style: none; border-width: medium" align="center">&nbsp;</td>
+			<td width="5" style="border-style: none; border-width: medium" align="center">&nbsp;</td>
+			<td width="60" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-top-style: none; border-top-width: medium; " align="center">
+			Inicio</td>
+			<td width="60" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-top-style: none; border-top-width: medium" align="center">
+			Fim</td>
+			<td width="5" style="border-style: none; border-width: medium" align="center">&nbsp;</td>
+			<td width="60" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-top-style: none; border-top-width: medium; " align="center">
+			Inicio</td>
+			<td width="60" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-top-style: none; border-top-width: medium" align="center">
+			Fim</td>
+			<td width="5" style="border-style: none; border-width: medium" align="center">&nbsp;</td>
+			<td width="60" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-top-style: none; border-top-width: medium; " align="center">
+			Inicio</td>
+			<td width="60" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-top-style: none; border-top-width: medium" align="center">
+			Fim</td>
+			<td width="5" style="border-style: none; border-width: medium" align="center">&nbsp;</td>
+			<td width="60" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-top-style: none; border-top-width: medium; " align="center">
+			Inicio</td>
+			<td width="60" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-top-style: none; border-top-width: medium" align="center">
+			Fim</td>
+		</tr>
+		<tr>
+			<td align="center" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-top-style: none; border-top-width: medium">
+			DIA</td>
+			<td align="center" style="border-left-style: none; border-left-width: medium; border-top-style: none; border-top-width: medium; border-bottom-style: none; border-bottom-width: medium" width="5">
+			&nbsp;</td>
+			<td align="center" style="border-style:solid; border-width:1px; ">
+			07:45</td>
+			<td align="center" style="border-left-style: solid; border-left-width: 1px; border-right-style: solid; border-right-width: 1px; border-top-style: solid; border-top-width: 1px">
+			09:05</td>
+			<td align="center" style="border-top-style: none; border-top-width: medium; border-bottom-style: none; border-bottom-width: medium" width="5">&nbsp;</td>
+			<td align="center" style="border-style:solid; border-width:1px; ">
+			10:10</td>
+			<td align="center" style="border-right-style: solid; border-right-width: 1px; border-top-style: solid; border-top-width: 1px; border-left-style:solid; border-left-width:1px">
+			11:30</td>
+			<td align="center" style="border-top-style: none; border-top-width: medium; border-bottom-style: none; border-bottom-width: medium" width="5">&nbsp;</td>
+			<td align="center" style="border-style:solid; border-width:1px; ">
+			13:30</td>
+			<td align="center" style="border-right-style: solid; border-right-width: 1px; border-top-style: solid; border-top-width: 1px; border-left-style:solid; border-left-width:1px">
+			14:50</td>
+			<td align="center" style="border-top-style: none; border-top-width: medium; border-bottom-style: none; border-bottom-width: medium" width="5">&nbsp;</td>
+			<td align="center" style="border-style:solid; border-width:1px; ">
+			15:55</td>
+			<td align="center" style="border-right-style: solid; border-right-width: 1px; border-top-style: solid; border-top-width: 1px; border-left-style:solid; border-left-width:1px">
+			17:15</td>
+		</tr>
+		<tr>
+			<td align="center" style="border-style:solid; border-width:1px; ">
+			TER</td>
+			<td align="center" style="border-top-style: none; border-top-width: medium; border-bottom-style: none; border-bottom-width: medium" width="5">
+			&nbsp;</td>
+			<td colspan="2" style="border-style:solid; border-width:1px; " align="center" >
+			<p align="center">
+			<font size="5" face="Algerian">5ºC</font></td>
+			<td width="5" style="border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" align="center">&nbsp;</td>
+			<td colspan="2" align="center" style="border-style: solid; border-width: 1px" >
+			<font size="5" face="Algerian">5ºA</font></td>
+			<td width="5" style="border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" align="center">&nbsp;</td>
+			<td colspan="2" align="center" style="border-style: solid; border-width: 1px" >
+			<font size="5" face="Algerian">2ºB</font></td>
+			<td width="5" style="border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" align="center">&nbsp;</td>
+			<td colspan="2" style="border-style: solid; border-width: 1px; " align="center" >
+			<font size="5" face="Algerian">2ºA</font></td>
+		</tr>
+		<tr>
+			<td align="center" style="border-style:solid; border-width:1px; ">
+			QUA</td>
+			<td align="center" style="border-top-style: none; border-top-width: medium; border-bottom-style: none; border-bottom-width: medium" width="5">
+			&nbsp;</td>
+			<td colspan="2" style="border-style:solid; border-width:1px; " align="center" >
+			<font size="5" face="Algerian">4ºB</font></td>
+			<td width="5" style="border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" align="center">&nbsp;</td>
+			<td colspan="2" style="border-style:solid; border-width:1px; " align="center" >
+			<font size="5" face="Algerian">4ºA</font></td>
+			<td width="5" style="border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" align="center">&nbsp;</td>
+			<td colspan="2" style="border-style:solid; border-width:1px; " align="center" >
+			<font size="5" face="Algerian">PII B</font></td>
+			<td width="5" style="border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" align="center">&nbsp;</td>
+			<td colspan="2" style="border-style:solid; border-width:1px; " align="center" >
+			<font size="5" face="Algerian">PII A</font></td>
+		</tr>
+		<tr>
+			<td align="center" style="border-style: solid; border-width: 1px">
+			QUI</td>
+			<td align="center" style="border-top-style: none; border-top-width: medium; border-bottom-style: none; border-bottom-width: medium" width="5">
+			&nbsp;</td>
+			<td colspan="2" style="border-style:solid; border-width:1px; " align="center" >
+			<font face="Algerian" size="5">4ºC</font></td>
+			<td width="5" style="border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" align="center">&nbsp;</td>
+			<td colspan="2" style="border-style:solid; border-width:1px; " align="center" >
+			<font face="Algerian" size="5">5ºB</font></td>
+			<td width="5" style="border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" align="center">&nbsp;</td>
+			<td colspan="2" style="border-style:solid; border-width:1px; " align="center" >
+			<font face="Algerian" size="5">3ºC</font></td>
+			<td width="5" style="border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" align="center">&nbsp;</td>
+			<td colspan="2" style="border-style:solid; border-width:1px; " align="center" >
+			<font face="Algerian" size="5">3ºB</font></td>
+		</tr>
+		<tr>
+			<td align="center" style="border-style:solid; border-width:1px; ">
+			SEX</td>
+			<td align="center" style="border-top-style: none; border-top-width: medium; border-bottom-style: none; border-bottom-width: medium" width="5">
+			&nbsp;</td>
+			<td colspan="2" style="border-style: solid; border-width: 1px; " align="center" >
+			<font face="Algerian" size="5">PI A</font></td>
+			<td width="5" style="border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" align="center">&nbsp;</td>
+			<td colspan="2" style="border-style:solid; border-width:1px; " align="center" >
+			<font face="Algerian" size="5">3ºA</font></td>
+			<td width="5" style="border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" align="center">&nbsp;</td>
+			<td colspan="2" style="border-style: solid; border-width: 1px; " align="center" >
+			<font face="Algerian" size="5">1ºB</font></td>
+			<td width="5" style="border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" align="center">&nbsp;</td>
+			<td colspan="2" align="center" style="border-style: solid; border-width: 1px" >
+			<font face="Algerian" size="5">1ºA</font></td>
+		</tr>
+	</table>
+</div>
+
+</div>
